@@ -24,7 +24,6 @@ import org.slf4j.kotlin.*
 import java.io.File
 import java.io.FileInputStream
 import java.util.concurrent.TimeUnit
-import kotlin.time.Duration.Companion.hours
 
 
 object Server {
@@ -59,8 +58,6 @@ object Server {
                 
                 val fileName = file.relativeTo(webRoot).nameWithoutExtension
                 get(fileName.removeSuffix("index")) {
-                    logger.info { "In get!" }
-                    
                     val variablesMap = mapOf(
                             "config" to config,
                             "projects" to info.projects,
@@ -70,27 +67,7 @@ object Server {
                     
                     call.respond(ThymeleafContent("web/${fileName}", variablesMap))
                 }
-                // get() {
-                //
-                // }
             }
-            
-            // get("/*") {
-            //     logger.info { "In get!" }
-            //     val path = context.request.path().takeIf { it != "/" } ?: "index"
-            //     logger.info { "resolving page at path $path" }
-            //     if (path.contains("."))
-            //         return@get
-            //
-            //     val variablesMap = mapOf(
-            //             "config" to config,
-            //             "projects" to info.projects,
-            //             "skills" to config.skills,
-            //             "path" to context.request.path()
-            //                             )
-            //
-            //     call.respond(ThymeleafContent("web/${context.request.path()}", variablesMap))
-            // }
         }
     }
     
