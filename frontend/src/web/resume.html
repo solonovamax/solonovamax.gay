@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en"
+      layout:decorate="~{templates/layouts/base}"
+      th:with="pageTitle='solonovamax | Resume',pageDescription='solonovamax\s resume'"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.ultraq.net.nz/thymeleaf/layout ">
+    <!--/*@thymesVar id="projects" type="kotlin.collections.List<gay.solonovamax.website.Project>"*/-->
+    <!--/*@thymesVar id="config" type="gay.solonovamax.website.config.Config"*/-->
+    <head>
+        <link href="/src/assets/scss/resume.scss" rel="stylesheet">
+    </head>
+    <body>
+        
+        <div class="container sections-wrapper py-5" layout:fragment="content">
+            <div class="row">
+                <div class="primary col-lg-12 col-12">
+                    <section class="section rounded shadow-sm">
+                        <div class="about" th:insert="/markdown/resume/about">
+                            <!-- "About" Content -->
+                        </div>
+                        <div class="callout">
+                            <strong>Note</strong><br/>
+                            Certain information has been redacted for my privacy.
+                        </div>
+                    </section>
+                    <section class="section rounded shadow-sm">
+                        <div class="experience" th:insert="/markdown/resume/experience">
+                            <!-- "Experience" content -->
+                        </div>
+                    </section>
+                    
+                    <section class="section rounded shadow-sm">
+                        <div class="education">
+                            <div th:insert="/markdown/resume/education">
+                                <!-- "Education" content -->
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="section rounded shadow-sm">
+                        <div class="projects">
+                            <div>
+                                <h2><a id="active-projects" href="#active-projects">Active Projects</a></h2>
+                                
+                                <p>I work on many projects, but here some of are my top ones:</p>
+                                
+                                <h3>
+                                    <a id="terra" href="#terra">Terra </a>
+                                    <a class="gh-icon"
+                                       href="https://github.com/PolyhedralDev/Terra"
+                                       rel="noreferrer"
+                                       target="_blank">
+                                        <img class="icon" alt="GitHub" src="/src/assets/img/icons/github.svg" height="48" width="48">
+                                    </a>
+                                </h3>
+                                
+                                <p th:insert="/markdown/resume/projects/terra">
+                                    One of three primary contributors to the development of an open-source data-driven voxel world
+                                    generation engine and API with an emphasis on user configuration and extensibility, with over 150K
+                                    downloads and a 4.7-star user-rating.
+                                </p>
+
+                                <h3>
+                                    <a id="krypton" href="#krypton">Krypton</a>
+                                    <a class="gh-icon"
+                                       href="https://github.com/astei/krypton"
+                                       rel="noreferrer"
+                                       target="_blank">
+                                        <img class="icon" alt="GitHub" src="/src/assets/img/icons/github.svg" height="48" width="48">
+                                    </a>
+                                </h3>
+
+                                <p th:insert="/markdown/resume/projects/krypton">
+                                    Top contributor to the Krypton network stack optimization mod, with over 2.2M downloads.
+                                </p>
+
+                                <h3>
+                                    <a id="polybot" href="#polybot">PolyBot</a>
+                                    <a class="gh-icon"
+                                       href="https://github.com/solo-studios/PolyBot"
+                                       rel="noreferrer"
+                                       target="_blank">
+                                        <img class="icon" alt="GitHub" src="/src/assets/img/icons/github.svg" height="48" width="48">
+                                    </a>
+                                </h3>
+                                
+                                <p th:insert="/markdown/resume/projects/polybot">
+                                    Developed a lightweight Discord bot in Kotlin, for discord moderation and utilities for the Polyhedral
+                                    Development organization, with a focus on modularity and extensibility. Currently, in-use by almost
+                                    3000 users.
+                                </p>
+
+                                <h3>
+                                    <a id="open-source-libraries" href="#open-source-libraries">Open Source Libraries</a>
+                                    <a class="gh-icon"
+                                       href="https://search.maven.org/search?q=g:ca.solo-studios OR g:gay.solonovamax"
+                                       rel="noreferrer"
+                                       target="_blank">
+                                        <img class="icon" alt="Maven Central" src="/src/assets/img/icons/apachemaven.svg" height="48"
+                                             width="48">
+                                    </a>
+                                </h3>
+
+                                <p th:insert="/markdown/resume/projects/open_source">
+                                    Developed several open source Java and Kotlin libraries published to Maven Central, with over
+                                    <span class="slight-emph">6.6K downloads</span>.
+                                </p>
+
+                                <h3><a id="self-hosted-services" href="#self-hosted-services">Self-Hosted Services</a></h3>
+
+                                <p th:insert="/markdown/resume/projects/self_hosted">
+                                    Set up Jenkins Continuous Integration server, Maven repository, and personal website, all setup from a
+                                   clean Linux Debian system.
+                                </p>
+                            
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="section rounded shadow-sm">
+                        <div class="other-work">
+                            <div th:insert="/markdown/resume/other_work">
+                                <!-- "Other Work" content -->
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="section rounded shadow-sm">
+                        <div class="technical-skills">
+                            <div th:insert="/markdown/resume/technical_skills">
+                                <!-- "Technical Skills" content -->
+                            </div>
+                        </div>
+    
+                        <div class="languages">
+                            <div th:insert="/markdown/resume/languages">
+                                <!-- "Technical Skills" content -->
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

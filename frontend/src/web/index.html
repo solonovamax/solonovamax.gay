@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en"
+      layout:decorate="~{templates/layouts/base}"
+      th:with="pageTitle='solonovamax | Home',pageDescription='Homepage to solonovamax\'s personal website.'"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.ultraq.net.nz/thymeleaf/layout ">
+    <!--/*@thymesVar id="projects" type="kotlin.collections.List<gay.solonovamax.website.Project>"*/-->
+    <!--/*@thymesVar id="config" type="gay.solonovamax.website.config.Config"*/-->
+    <head>
+        <link href="/src/assets/scss/index.scss" rel="stylesheet">
+    </head>
+    <body>
+        
+        <div class="container sections-wrapper py-5" layout:fragment="content">
+            <div class="row">
+                <div class="primary col-lg-12 col-12">
+                    <section class="section rounded shadow-sm">
+                        <div class="about" th:insert="/markdown/about-me">
+                            <!-- "About" Content -->
+                        </div>
+                    </section>
+                    
+                    <section class="section rounded shadow-sm">
+                        <div class="experience">
+                            <div th:insert="/markdown/experience"></div>
+                        </div>
+                    </section>
+                    
+                    <section class="section rounded shadow-sm">
+                        <div class="projects">
+                            <!--Projects-->
+                            <div th:insert="/markdown/projects">
+                                <!-- "Projects" Content -->
+                            </div>
+                            
+                            <div class="content row equal row-cols-sm-2 row-cols-md-2 center">
+                                <!-- Projects List -->
+                                <div class="project col-md-6 col-sm-6" th:each="project : ${projects}">
+                                    <div class="project-card shadow p-3 rounded">
+                                        <div class="project-card-body">
+                                            <a class="link-no-colour"
+                                               rel="noreferrer"
+                                               target="_blank"
+                                               th:href="${project.url}">
+                                                <div class="project-card-title" th:text="${project.name}">Project Name</div>
+                                            </a>
+                                            <p class="project-card-text text-decoration-none" th:text="${project.description}">Project Description</p>
+                                            
+                                            <hr/>
+                                            
+                                            <div class="pb-3" th:if="${project.languages.size != 0}">
+                                                Languages:
+                                                <a class="badge bg-dark project-card-link language"
+                                                   rel="noreferrer"
+                                                   target="_blank"
+                                                   th:each="language : ${project.languages}"
+                                                   th:href="|${project.url}/search?l=${language.name}|"
+                                                   th:text="|${language.name}: ${language.amount}% |">
+                                                    Language Name: 100%
+                                                </a>
+                                            
+                                            </div>
+                                            
+                                            <p class="project-card-stats">
+                                                
+                                                <!-- Repo link -->
+                                                <a class="project-repo-button btn btn-outline-light" rel="noreferrer" target="_blank"
+                                                   th:href="${project.url}">
+                                                    <i class="fab fa-github"></i> Repo
+                                                </a>
+
+                                                <!--Stars-->
+                                                <a class="text-decoration-none"
+                                                   rel="noreferrer"
+                                                   target="_blank"
+                                                   th:href="|${ project.url }/stargazers|">
+                                                    <span class="project-card-link mr-4">
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <span class="badge badge-dark" th:text="${project.stars}">999</span>
+                                                        <!--<img alt="GitHub"-->
+                                                        <!--     src="/src/assets/img/icons/github.svg"-->
+                                                        <!--     height="32"-->
+                                                        <!--     width="32">-->
+                                                        <!--Stars-->
+                                                    </span>
+                                                </a>
+
+                                                <!--Forks-->
+                                                <a class="text-decoration-none"
+                                                   rel="noreferrer"
+                                                   target="_blank"
+                                                   th:href="|${ project.url }/network/members|">
+                                                <span class="project-card-link mr-4">
+                                                        <i class="fa-solid fa-code-fork"></i>
+                                                        <span class="badge badg-dark" th:text="${project.forks}">999</span>
+                                                </span>
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

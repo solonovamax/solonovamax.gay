@@ -1,0 +1,22 @@
+<!--suppress HtmlUnknownTarget -->
+<footer class="footer">
+    <div class="container text-center">
+        Icons courtesy of
+        <a href="https://devicon.dev/" rel="noreferrer" target="_blank">
+            Devicon
+            <img class="footer-icon" alt="Devicon" src="/assets/img/devicons/devicon/devicon-original.svg"/></a>,
+        <a href="https://simpleicons.org/" rel="noreferrer" target="_blank">
+            Simple Icons
+            <img class="footer-icon" alt="Simple Icons" src="/assets/img/icons/simpleicons.svg"></a>,
+        and
+        <a href="https://fontawesome.com/" rel="noreferrer" target="_blank">
+            Font Awesome
+            <img class="footer-icon" alt="Font Awesome" src="/assets/img/icons/fontawesome.svg"></a>
+        <p>
+            <small class="text-muted">
+                This project website is made with
+                <a href="https://github.com/solonovamax/solonovamax.gay/" rel="noreferrer" target="_blank">Open Source Software</a>.
+            </small>
+        </p>
+    </div>
+</footer>

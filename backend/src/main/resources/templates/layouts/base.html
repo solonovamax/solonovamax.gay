@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+    <!--/*@thymesVar id="page" type="gay.solonovamax.website.Page"*/-->
+    <head>
+        <!-- Primary Meta Tags -->
+        <title th:text="${page.title}">Page Title</title>
+        <meta charset="utf-8"/>
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        
+        <meta name="title" th:content="${page.title}">
+        <meta name="description" th:content="${page.description} ?: 'solonovamax\'s website'">
+        <meta content="solonovamax" name="author">
+        
+        
+        <!-- Open Graph Meta Tags -->
+        <meta content="website" property="og:type">
+        <meta content="solonovamax" property="og:site_name">
+        <meta property="og:title" th:content="${page.title}">
+        <meta property="og:url" th:content="${page.url}">
+        <meta content="/assets/img/profile-picture@500x500.webp" property="og:image" th:content="${page.image} ?: _">
+        
+        <meta content="en_US" property="og:locale">
+        <meta property="og:description" th:content="${page.description} ?: 'solonovamax\'s website'">
+        
+        <meta property="og:video" th:content="${page.video}" th:if="${page.video != null}">
+        
+        <!-- Twitter -->
+        <meta content="summary_large_image" property="twitter:card">
+        <meta property="twitter:url" th:content="${page.url}">
+        <meta property="twitter:title" th:content="${page.title}">
+        <meta property="twitter:description" th:content="${page.description}">
+        <meta property="twitter:image" th:content="${page.image} ?: '/assets/img/profile-picture@500x500.webp'">
+        
+        
+        <link rel="shortcut icon" th:href="|/favicon.ico|">
+        
+        <!-- Primary Style Sheet -->
+        <link rel="stylesheet" th:href="|/assets/css/main.css|">
+    </head>
+    <body>
+        <div id="burger"></div>
+        
+        <header th:replace="~{fragments/header :: header}"></header>
+        
+        <div class="main-content" id="content">
+            <div layout:fragment="content">
+                <p>Template Page content. Put actual content here.</p>
+            </div>
+        </div>
+        
+        <footer th:replace="~{fragments/footer :: footer}"></footer>
+        
+        <!-- Main JS File -->
+        <!--<script th:src="@{/assets/js/solonovamax.gay.js}"></script>-->
+    </body>
+</html>

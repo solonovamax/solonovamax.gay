@@ -1,0 +1,67 @@
+@use "style";
+@use "fontawesome";
+
+* {
+    @include style.fira-sans;
+
+    scroll-behavior: smooth;
+}
+
+body {
+    @include style.fira-sans;
+
+    color:                   style.$primary-colour;
+    background:              style.$bg-colour;
+
+    font-size:               16px;
+    -webkit-font-smoothing:  antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height:             24px;
+
+    transition:              1s;
+}
+
+a {
+    color:           style.$link-colour;
+
+    transition:      all 0.4s ease-in-out;
+    text-decoration: none;
+
+    &:hover {
+        color: style.$active-link-colour;
+    }
+}
+
+.icon {
+    margin:      4px 4px 16px 4px;
+    line-height: 32px;
+
+    height:      32px;
+    width:       32px;
+    filter:      invert(100%) brightness(115%) contrast(57%);
+}
+
+.link-no-colour {
+    color: unset;
+}
+
+.main-content {
+    .container {
+        max-width: 960px;
+    }
+}
+
+.section {
+    margin-bottom: 30px;
+
+    background:    style.$body-colour;
+    color:         style.$primary-colour;
+    padding:       30px;
+
+    .heading {
+        margin-top:    0;
+        margin-bottom: 30px;
+        color:         rgba(255, 255, 255, 0.9);
+        font-size:     24px;
+    }
+}

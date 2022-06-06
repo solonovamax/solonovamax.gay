@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"
+      layout:decorate="~{templates/layouts/base}"
+      th:with="pageTitle='solonovamax | Layla',pageDescription='Layla <3'"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.ultraq.net.nz/thymeleaf/layout ">
+    <body>
+        <div class="container sections-wrapper py-5" layout:fragment="content">
+            <div class="row">
+                <div class="primary col-lg-12 col-12">
+                    <section class="section rounded shadow-sm">
+                        <div class="about" th:insert="/markdown/layla">
+                            <!-- "Layla" Content -->
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

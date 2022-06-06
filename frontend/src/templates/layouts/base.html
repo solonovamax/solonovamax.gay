@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+    <!--/*@thymesVar id="config" type="gay.solonovamax.website.config.Config"*/-->
+    <head>
+        <!-- Primary Meta Tags -->
+        <title th:text="${pageTitle}">Page Title</title>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="title" th:content="${pageTitle}">
+        <meta name="description" th:content="${pageDescription} ?: 'solonovamax\'s website'">
+        <meta name="author" content="solonovamax">
+
+
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="solonovamax">
+        <meta property="og:title" th:content="${pageTitle}">
+        <meta property="og:url" th:content="|${config.domain}${path}|">
+        <meta property="og:image" content="/src/assets/img/profile-picture.png" th:content="${pageImage} ?: _">
+        
+        <meta property="og:locale" content="en_US">
+        <meta property="og:description" content="solonovamax's website" th:content="${pageDescription} ?: _">
+        
+        <meta property="og:video" th:content="${pageVideo}" th:if="${pageVideo != null}">
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" th:content="|${config.domain}${path}|">
+        <meta property="twitter:title" th:content="${pageTitle}">
+        <meta property="twitter:description" content="solonovamax's website" th:content="${pageDescription}">
+        <meta property="twitter:image" content="/src/assets/img/profile-picture.png" th:content="${pageImage} ?: _">
+
+        <!-- Favicon -->
+        <link href="/src/assets/favicon.ico" rel="shortcut icon" sizes="32x32">
+        <link href="/src/assets/favicon.png" rel="shortcut icon" type="image/png" sizes="32x32">
+        <link href="/src/assets/favicon.png?as=webp" rel="shortcut icon" type="image/webp" sizes="32x32">
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+        <!-- Base Style Sheet -->
+        <link href="/src/assets/scss/base.scss" rel="stylesheet">
+        <!--<link href="/src/assets/scss/fontawesome.scss" rel="stylesheet">-->
+    </head>
+    <body>
+        <header th:replace="~{templates/fragments/header :: header}"></header>
+        
+        <div id="content" class="main-content">
+            <div layout:fragment="content">
+                <p>Template Page content. Put actual content here.</p>
+            </div>
+        </div>
+        
+        <footer th:replace="~{templates/fragments/footer :: footer}"></footer>
+    
+        <!-- Main JS File -->
+        <!--<script th:src="@{/assets/js/solonovamax.gay.js}"></script>-->
+    </body>
+</html>

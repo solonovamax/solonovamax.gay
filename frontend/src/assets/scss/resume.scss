@@ -1,0 +1,11 @@
+@use "style";
+@use "base";
+@use "project-cards";
+
+.languages {
+    ul {
+        columns:         2;
+        -webkit-columns: 2;
+        -moz-columns:    2;
+    }
+}

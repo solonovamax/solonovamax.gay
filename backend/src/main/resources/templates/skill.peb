@@ -1,0 +1,13 @@
+{# @pebvariable name="skill" type="gay.solonovamax.website.config.Skill" #}
+<!--suppress HtmlUnknownTarget -->
+<div style="width: 95%">
+    <p class="lead mb-1 mt-2">{{ skill.name }}</p>
+    <div class="progress-bar-animation progress">
+        <div class="progress-bar"
+             role="progressbar"
+             aria-valuenow="{{ skill.amount }}"
+             aria-valuemin="0"
+             aria-valuemax="100"
+             style="width: {{ skill.amount }}%"></div>
+    </div>
+</div>

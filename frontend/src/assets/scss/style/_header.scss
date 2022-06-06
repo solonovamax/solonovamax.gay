@@ -1,0 +1,97 @@
+@use "variables" as style;
+@use "bootstrap/scss/bootstrap";
+
+.header {
+    //padding: 40px 0;
+    padding:          40px;
+    //margin: 20px;
+    color:            style.$highlight-colour;
+
+    border-top-color: style.$body-colour;
+    background:       style.$body-colour scroll;
+    background-clip:  border-box;
+
+    .profile-image {
+        //noinspection CssUnknownTarget
+        //height: 1000px;
+        //width: 1000px;
+        align-content: center;
+        //margin-right: 20px;
+        margin:        20px;
+        height:        80%;
+        width:         80%;
+        max-width:     80%;
+        max-height:    80%;
+    }
+
+    .profile-content {
+        //margin-left: -40px;
+        align-content: start;
+
+        .name {
+            color:         style.$highlight-colour;
+            font-size:     52px;
+            margin-bottom: 24px;
+            margin-top:    30px;
+            //height: 32px;
+
+            .divider {
+                color:     style.$primary-colour;
+                font-size: 30px;
+
+                @include bootstrap.media-breakpoint-down(md) {
+                    color: transparent;
+                }
+            }
+
+            .pronouns {
+                color:     style.$primary-colour;
+                font-size: 18px;
+            }
+        }
+
+        .desc {
+            color:         style.$primary-colour;
+
+            font-weight:   400;
+            font-size:     24px;
+            margin-top:    0;
+            margin-bottom: 10px;
+        }
+
+        .contact {
+            max-width:   100%;
+            //display: flex;
+            display:     inline-flex;
+            align-items: center;
+
+            a {
+                background:              #2E3238;
+                color:                   style.$primary-colour;
+                width:                   48px;
+                height:                  48px;
+                display:                 grid;
+                place-items:             center;
+                border-radius:           50%;
+                background-clip:         padding-box;
+                -webkit-background-clip: padding-box;
+                -moz-background-clip:    padding;
+                text-align:              center;
+                //vertical-align: middle;
+                font-size:               24pt;
+                line-height:             48px;
+
+                &:hover {
+                    background: style.$link-colour;
+                    color:      style.$highlight-colour;
+                }
+
+                img {
+                    height: 32px;
+                    width:  32px;
+                    filter: invert(100%) brightness(115%) contrast(57%);
+                }
+            }
+        }
+    }
+}

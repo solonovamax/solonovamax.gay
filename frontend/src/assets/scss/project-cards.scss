@@ -1,0 +1,41 @@
+// @use "style";
+
+.project {
+    padding: 16px;
+
+    .project-card {
+        .project-card-title {
+            font-size:     1.25rem;
+            font-weight:   500;
+            line-height:   1.2;
+            margin-bottom: 0.5rem;
+            margin-top:    0;
+        }
+
+        .language {
+            margin: 2px;
+        }
+
+        background: rgba(255, 255, 255, 0.05);
+        // color:      style.$primary-colour;
+        transition: transform 0.3s, box-shadow 0.3s;
+
+        height:     100%;
+
+        &:hover {
+            box-shadow: 0 .75rem 1rem rgba(0, 0, 0, 0.4) !important;
+            transform:  translateY(-8px);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card-stats {
+            .project-repo-button {
+                margin: 0 8px 0 0;
+            }
+
+            a {
+                margin: 2px;
+            }
+        }
+    }
+}

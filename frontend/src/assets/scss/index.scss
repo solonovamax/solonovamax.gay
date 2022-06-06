@@ -1,0 +1,61 @@
+@use "project-cards";
+
+.section {
+    .content {
+        .more-link {
+            i {
+                margin-right: 5px;
+                font-size:    14px;
+                position:     relative;
+                top:          -2px;
+            }
+        }
+    }
+
+    .about {
+
+    }
+
+    .projects {
+        //.content {
+        //    display: flex;
+        //    flex-wrap: wrap;
+        //
+        //    .col-md-6 {
+        //        flex-direction: column;
+        //    }
+        //}
+        //.content {
+        //    div {
+        //        margin: 16px;
+        //    }
+        //}
+    }
+}
+
+.progress {
+    transform-origin: left;
+
+    & > * {
+        transform: scaleX(0);
+    }
+}
+
+.progress-bar-animation {
+    @extend .progress;
+
+    & > * {
+        animation: progress 1.5s ease-in-out forwards;
+    }
+}
+
+@keyframes progress {
+    from {
+        transform:        scaleX(0);
+        transform-origin: left;
+    }
+    to {
+        transform-origin: left;
+        transform:        scaleX(1);
+    }
+}

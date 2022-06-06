@@ -1,0 +1,13 @@
+@mixin fira-sans {
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 400;
+}
+
+@mixin fira-code {
+    font-family: "Fira Code", monospace;
+    font-weight: 400;
+}
+
+.slight-emph {
+    font-weight: 500;
+}

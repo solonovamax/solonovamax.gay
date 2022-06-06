@@ -1,0 +1,23 @@
+@use "variables" as style;
+
+.footer {
+    //padding: 40px 0;
+    padding:          20px;
+    //margin: 20px;
+    color:            style.$highlight-colour;
+
+    border-top-color: style.$body-colour;
+    background:       style.$body-colour scroll;
+    background-clip:  border-box;
+
+    .footer-icon {
+        height: 24px;
+        width:  24px;
+
+        //transition: all 0.4s ease-in-out;
+        //
+        //&:hover {
+        //    color: $active-link-colour;
+        //}
+    }
+}

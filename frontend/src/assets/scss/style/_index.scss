@@ -1,0 +1,11 @@
+@use "variables";
+@use "bootstrap/scss/bootstrap" with (
+    $text-muted: variables.$text-muted,
+    $box-shadow: variables.$box-shadow
+);
+@forward "variables";
+@forward "functions";
+@forward "fonts";
+@forward "header";
+@forward "footer";
+@forward "callout";
