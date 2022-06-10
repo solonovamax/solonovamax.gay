@@ -1,8 +1,5 @@
 @file:Suppress("SuspiciousCollectionReassignment")
 
-import kotlin.properties.Delegates
-import java.util.Arrays
-
 plugins {
     application
     distribution
@@ -100,8 +97,7 @@ dependencies {
 
 application {
     mainClass.set("io.ktor.server.netty.EngineMain")
-    applicationDefaultJvmArgs = listOf("-Dio.ktor.development=true")
-    executableDir
+    // applicationDefaultJvmArgs = listOf("-Dio.ktor.development=true")
 }
 
 val prepRun by tasks.creating(Sync::class) {
@@ -113,10 +109,6 @@ val prepRun by tasks.creating(Sync::class) {
     from("$projectDir/config.yaml")
     from("files") {
         into("files/markdown/")
-    }
-    
-    doFirst {
-        println("copying files again")
     }
     
     into(runDir)
@@ -137,13 +129,18 @@ distributions {
             from(website) {
                 into("public")
             }
-            
+    
             from("$projectDir/config.yaml")
             from("files") {
                 into("files/markdown/")
             }
         }
     }
+}
+
+tasks.jar {
+    println(this.source.asPath)
+    from(sourceSets.main.get().output)
 }
 
 val isProduction: Boolean
