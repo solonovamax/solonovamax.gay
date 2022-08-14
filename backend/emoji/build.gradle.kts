@@ -16,11 +16,9 @@ kotlin {
     target {
         compilations.all {
             kotlinOptions {
-                freeCompilerArgs += "-opt-in=kotlin.RequiresOptIn"
-                languageSettings.optIn("kotlin.RequiresOptIn")
                 jvmTarget = JavaVersion.VERSION_11.toString()
-                languageVersion = "1.6"
-                apiVersion = "1.6"
+                languageVersion = "1.7"
+                apiVersion = "1.7"
             }
         }
     }

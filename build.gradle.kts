@@ -19,7 +19,7 @@ tasks {
 }
 
 allprojects {
-    version = "1.1.0"
+    version = "1.1.1"
     group = "gay.solonovamax"
     
     repositories {
