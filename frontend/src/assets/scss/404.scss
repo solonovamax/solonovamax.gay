@@ -1,0 +1,114 @@
+@use "style";
+
+* {
+    @include style.fira-sans;
+
+    scroll-behavior: smooth;
+}
+
+body {
+    @include style.fira-sans;
+
+    color:                   style.$text-body;
+    background:              style.$bg-colour;
+
+    font-size:               16px;
+    -webkit-font-smoothing:  antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height:             24px;
+
+    transition:              1s;
+}
+
+a {
+    color:           style.$link-colour;
+
+    transition:      all 0.4s ease-in-out;
+    text-decoration: none;
+
+    &:hover {
+        color: style.$active-link-colour;
+    }
+}
+
+.main-content {
+    text-align: center;
+
+    h3 {
+        // color:       #3498DB;
+        // font-weight: bold;
+        // text-align:  center;
+        // line-height: 130%;
+        // font-size:   14px;
+    }
+
+    .container {
+        margin:    60px auto 60px auto;
+        max-width: 960px;
+
+        .tally-computer {
+            padding: 70px;
+        }
+
+        .error-text {
+            margin: 20px;
+        }
+
+        .button-home {
+            margin: 40px;
+        }
+    }
+}
+
+.section {
+    margin-bottom: 30px;
+
+    background:    style.$body-colour;
+    color:         style.$text-body;
+    padding:       30px;
+}
+
+.button {
+    color:           style.$text-body;
+    background:      style.$link-colour;
+    padding:         10px 20px;
+    // color:           #FFFFFF;
+    font-weight:     bold;
+    text-align:      center;
+    border-radius:   3px;
+    text-decoration: none;
+    font-size:       48px;
+
+    &:hover {
+        background: style.$active-link-colour;
+        color:      style.$text-body;
+    }
+}
+
+span {
+    font-size:   14px;
+    color:       #FFFFFF;
+    font-weight: normal;
+    text-align:  center;
+
+    a {
+        color:           #FFFF00;
+        text-decoration: none;
+
+        &:hover {
+            color: #FF0000;
+        }
+    }
+}
+
+// @media screen and (max-width: 500px) {
+//     img {
+//         width: 70%;
+//     }
+//     .container {
+//         padding: 70px 10px 10px 10px;
+//     }
+//     h3 {
+//         font-size: 14px;
+//     }
+// }

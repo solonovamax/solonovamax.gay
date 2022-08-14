@@ -36,7 +36,7 @@
             //height: 32px;
 
             .divider {
-                color:     style.$primary-colour;
+                color:     style.$text-body;
                 font-size: 30px;
 
                 @include bootstrap.media-breakpoint-down(md) {
@@ -45,13 +45,13 @@
             }
 
             .pronouns {
-                color:     style.$primary-colour;
+                color:     style.$text-body;
                 font-size: 18px;
             }
         }
 
         .desc {
-            color:         style.$primary-colour;
+            color:         style.$text-body;
 
             font-weight:   400;
             font-size:     24px;
@@ -67,7 +67,7 @@
 
             a {
                 background:              #2E3238;
-                color:                   style.$primary-colour;
+                color:                   style.$text-body;
                 width:                   48px;
                 height:                  48px;
                 display:                 grid;

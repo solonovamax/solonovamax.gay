@@ -2,10 +2,26 @@
 @use "base";
 @use "project-cards";
 
+.technical-skills {
+    p {
+        margin-bottom: 0;
+    }
+}
+
 .languages {
     ul {
-        columns:         2;
-        -webkit-columns: 2;
-        -moz-columns:    2;
+        columns: 3;
+    }
+}
+
+.grouped-list {
+    ul {
+        columns: 3;
+    }
+}
+
+.tooling {
+    ul {
+        columns: 3;
     }
 }

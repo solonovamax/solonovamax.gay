@@ -9,3 +9,7 @@
 @forward "header";
 @forward "footer";
 @forward "callout";
+
+body {
+    min-height: 100vh;
+}

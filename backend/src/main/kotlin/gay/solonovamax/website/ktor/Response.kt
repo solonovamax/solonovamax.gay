@@ -1,5 +1,6 @@
 package gay.solonovamax.website.ktor
 
+import gay.solonovamax.website.Server
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.application.Application
 import io.ktor.server.application.install
@@ -12,9 +13,10 @@ import io.ktor.server.plugins.compression.identity
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.plugins.partialcontent.PartialContent
 import io.ktor.server.plugins.statuspages.StatusPages
-import io.ktor.server.response.respondFile
+import io.ktor.server.request.path
+import io.ktor.server.response.respond
+import io.ktor.server.thymeleaf.ThymeleafContent
 import org.slf4j.kotlin.toplevel.*
-import java.io.File
 
 private val logger by getLogger()
 
@@ -47,11 +49,18 @@ fun Application.configureResponse() {
         // exception<NotImplementedError> { call, cause ->
         //     call.respond(HttpStatusCode.NotImplemented, cause.message ?: "")
         // }
-        val baseDir = File("public/static/")
+    
         status(HttpStatusCode.NotFound, HttpStatusCode.Unauthorized, HttpStatusCode.BadRequest,
                HttpStatusCode.Forbidden, HttpStatusCode.RequestTimeout) { call, status ->
-            call.response.status(status)
-            call.respondFile(baseDir, "/error${status.value}.html")
+            // call.response.status(status)
+        
+            val variablesMap = mapOf(
+                    "config" to Server.config,
+                    "path" to call.request.path()
+                                    )
+        
+            call.respond(status, ThymeleafContent("/status/error${status.value}.html", variablesMap))
+            // call.respond(baseDir, "/error${status.value}.html")
         }
         
         // statusFile(HttpStatusCode.NotFound, HttpStatusCode.Unauthorized, HttpStatusCode.BadRequest,

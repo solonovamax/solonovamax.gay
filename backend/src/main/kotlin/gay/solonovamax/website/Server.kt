@@ -9,6 +9,7 @@ import gay.solonovamax.website.util.readYaml
 import io.ktor.server.application.Application
 import io.ktor.server.application.call
 import io.ktor.server.http.content.CompressedFileType
+import io.ktor.server.http.content.file
 import io.ktor.server.http.content.files
 import io.ktor.server.http.content.preCompressed
 import io.ktor.server.http.content.static
@@ -41,21 +42,23 @@ object Server {
         configureThymeleaf()
         
         routing {
+            val assetsDir = File("public/assets/")
+            val favicon =
+                    assetsDir.listFiles { file -> file.nameWithoutExtension.startsWith("favicon") && file.extension == "ico" }?.first()!!
+    
+            file("favicon.ico", favicon)
             static("assets") {
                 preCompressed(CompressedFileType.BROTLI, CompressedFileType.GZIP) {
                     files("public/assets")
                 }
             }
-            // get("/") {
-            //
-            // }
-            // val root = File(".")
-            val webRoot = File("./public/web")
-            
+    
+            val webRoot = File("./public/web/")
+    
             webRoot.walk().forEach { file ->
                 if (file.extension != "html")
                     return@forEach
-                
+        
                 val fileName = file.relativeTo(webRoot).nameWithoutExtension
                 get(fileName.removeSuffix("index")) {
                     val variablesMap = mapOf(
@@ -64,7 +67,7 @@ object Server {
                             "skills" to config.skills,
                             "path" to context.request.path()
                                             )
-                    
+            
                     call.respond(ThymeleafContent("web/${fileName}", variablesMap))
                 }
             }

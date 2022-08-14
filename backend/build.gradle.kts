@@ -115,6 +115,7 @@ val prepRun by tasks.creating(Sync::class) {
 }
 
 tasks.run.configure {
+    args("-P:ktor.development=true", "-P:ktor.environment=dev")
     dependsOn(prepRun)
     workingDir = file(runDir)
 }

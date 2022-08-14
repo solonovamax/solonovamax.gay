@@ -9,6 +9,9 @@
     border-top-color: style.$body-colour;
     background:       style.$body-colour scroll;
     background-clip:  border-box;
+    // position: absolute;
+    // bottom: 0;
+    width:            100%;
 
     .footer-icon {
         height: 24px;

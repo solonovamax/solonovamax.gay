@@ -1,5 +1,4 @@
 @use "style";
-@use "fontawesome";
 
 * {
     @include style.fira-sans;
@@ -32,15 +31,6 @@ a {
     }
 }
 
-.icon {
-    margin:      4px 4px 16px 4px;
-    line-height: 32px;
-
-    height:      32px;
-    width:       32px;
-    filter:      invert(100%) brightness(115%) contrast(57%);
-}
-
 .link-no-colour {
     color: unset;
 }
@@ -57,11 +47,4 @@ a {
     background:    style.$body-colour;
     color:         style.$text-body;
     padding:       30px;
-
-    .heading {
-        margin-top:    0;
-        margin-bottom: 30px;
-        color:         rgba(255, 255, 255, 0.9);
-        font-size:     24px;
-    }
 }
