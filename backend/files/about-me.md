@@ -1,6 +1,6 @@
 ## About Me
 
-I'm an 18-year-old dev from Quebec, Canada.
+I'm a 19-year-old dev from Quebec, Canada.
 I believe open source code is very important for a healthy developer ecosystem,
 as well as just for promoting transparency.
 The large majority of my time doing programming is spent contributing to open source projects.
