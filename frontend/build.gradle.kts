@@ -1,4 +1,4 @@
-import com.github.gradle.node.npm.task.NpmTask
+import com.github.gradle.node.yarn.task.YarnTask
 
 plugins {
     // kotlin("js")
@@ -13,8 +13,8 @@ node {
     download.set(true)
 }
 
-val parcelDevBuild by tasks.creating(NpmTask::class) {
-    dependsOn(tasks.npmInstall)
+val parcelDevBuild by tasks.creating(YarnTask::class) {
+    dependsOn(tasks.yarn)
     
     args.set(listOf("run", "buildDev"))
     inputs.dir("src")
@@ -25,13 +25,13 @@ val parcelDevBuild by tasks.creating(NpmTask::class) {
     outputs.dir("${buildDir}/dev")
 }
 
-val parcelProdBuild by tasks.creating(NpmTask::class) {
-    dependsOn(tasks.npmInstall)
+val parcelProdBuild by tasks.creating(YarnTask::class) {
+    dependsOn(tasks.yarn)
     
     args.set(listOf("run", "build"))
     inputs.dir("src")
     inputs.files(
-            "package.json", "package-lock.json", "sharp.config.json", "tsconfig.json", ".htmlnanorc", ".parcelrc", ".posthtmlrc",
+            "package.json", "yarn.lock", "sharp.config.json", "tsconfig.json", ".htmlnanorc", ".parcelrc", ".posthtmlrc",
             ".browserslistrc",
                 )
     outputs.dir("${buildDir}/prod")
